@@ -16,13 +16,16 @@ document.querySelector('.composer button')?.addEventListener('click', () => {
 
 const playsong = (song: any): void => {
   let songElement: any = document.querySelector(`#s_${song}`);
-  let keyElement: any = document.querySelector(`div[data key="${song}"]`)
+  let keyElement: any = document.querySelector(`div[data-key="${song}"]`)
   if (songElement) {
     songElement.currentTime = 0;
     songElement.play()
   } 
   if (keyElement) {
     keyElement.classList.add('active');
+    setTimeout(() => {
+      keyElement.classList.remove('active');
+    }, NUMBERWAIT);
   }
 }; 
 

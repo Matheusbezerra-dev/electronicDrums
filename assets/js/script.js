@@ -13,13 +13,16 @@ document.body.addEventListener('keyup', (e) => {
 });
 const playsong = (song) => {
     let songElement = document.querySelector(`#s_${song}`);
-    let keyElement = document.querySelector(`div[data key="${song}"]`);
+    let keyElement = document.querySelector(`div[data-key="${song}"]`);
     if (songElement) {
         songElement.currentTime = 0;
         songElement.play();
     }
     if (keyElement) {
         keyElement.classList.add('active');
+        setTimeout(() => {
+            keyElement.classList.remove('active');
+        }, NUMBERWAIT);
     }
 };
 const playComposition = (array) => {
